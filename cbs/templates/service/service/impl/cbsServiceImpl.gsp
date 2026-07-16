@@ -20,7 +20,7 @@ import org.springframework.beans.BeanUtils;
 import com.bihu.cbs.common.web.request.AppResponse;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.transaction.annotation.Transactional;
+import com.baomidou.dynamic.datasource.annotation.DSTransactional;
 
 /**
  * ${tableDefine.cnname} Service实现类
@@ -28,7 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author ${config.author}
  * @date ${config.nowDate}
  */
-@Transactional(rollbackFor = Exception.class)
+@DSTransactional(rollbackFor = Exception.class)
 @Slf4j
 @Service
 public class ${tableDefine.id}ServiceImpl implements ${tableDefine.id}Service {
