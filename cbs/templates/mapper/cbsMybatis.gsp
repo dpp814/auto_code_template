@@ -169,7 +169,7 @@
         columns.each{
             if(pkColumn!=it){
                 if(!"removed".equalsIgnoreCase(it.columnName) && !"created_by".equalsIgnoreCase(it.columnName) && !"created_at".equalsIgnoreCase(it.columnName)
-                        && !"updated_at".equalsIgnoreCase(it.columnName)){
+                        && !"updated_at".equalsIgnoreCase(it.columnName) && !"tenant_id".equalsIgnoreCase(it.columnName)){
                     println """        <if test="${it.dataName} != null">"""
                     println """            ${it.columnName} = #{${it.dataName}},"""
                     println """        </if>"""
