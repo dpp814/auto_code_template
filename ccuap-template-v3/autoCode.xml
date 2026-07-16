@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<autoMake
+        xmlns="http://molicode_repo.gitee.io/molicode_doc/schema/autoCode"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://molicode_repo.gitee.io/molicode_doc/schema/autoCode http://molicode_repo.gitee.io/molicode_doc/schema/autoCode/autoCode-1.0.xsd">
+
+    <properties>
+        <!-- 代码片段配置文件，将部分公用的代码抽取出来放置到此处 -->
+        <property key="snippet.template.path">config/molicode/snippetTemplate.xml</property>
+        <!-- 用户自定义的配置文件，配置的值以文本方式直接可以在：extendConf.get("") 到-->
+        <property key="extend.text.config">config/molicode/extendConfig.xml</property>
+        <!-- 页面依赖资源配置文件（可支持requirejs和 普通引入）-->
+        <property key="pagerequire.map.config">config/molicode/requireConfig.xml</property>
+        <!-- 数据库类型到java类型映射-->
+        <property key="dbtype.javatype.map.config">config/molicode/db2javaTypeMap.xml</property>
+        <!-- 数据库类型到页面类型映射-->
+        <property key="dbtype.columntag.map.config">config/molicode/dbType2ColumnTagMap.xml</property>
+
+    </properties>
+
+
+    <templates>
+        <!-- api模块-->
+        <template id="ccuapApi" name="ccuapApi类"
+                  destFile="/${config.artifactId}-api/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/api/${tableDefine.id}Api.java"
+                  templateFile="templates/api/ccuapApi.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <template id="ccuapCreateCmd" name="ccuapCreateCmd类"
+                  destFile="/${config.artifactId}-api/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/parameter/command/${StringUtils.lowerCase(tableDefine.id)}/Create${tableDefine.id}Cmd.java"
+                  templateFile="templates/parameter/command/ccuapCreateCmd.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <template id="ccuapDeleteCmd" name="ccuapDeleteCmd类"
+                  destFile="/${config.artifactId}-api/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/parameter/command/${StringUtils.lowerCase(tableDefine.id)}/Delete${tableDefine.id}Cmd.java"
+                  templateFile="templates/parameter/command/ccuapDeleteCmd.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <template id="ccuapUpdateCmd" name="ccuapUpdateCmd类"
+                  destFile="/${config.artifactId}-api/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/parameter/command/${StringUtils.lowerCase(tableDefine.id)}/Update${tableDefine.id}Cmd.java"
+                  templateFile="templates/parameter/command/ccuapUpdateCmd.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <template id="ccuapListQuery" name="ccuapListQuery类"
+                  destFile="/${config.artifactId}-api/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/parameter/query/${StringUtils.lowerCase(tableDefine.id)}/${tableDefine.id}ListQuery.java"
+                  templateFile="templates/parameter/query/ccuapListQuery.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <template id="ccuapVo" name="ccuapVo类"
+                  destFile="/${config.artifactId}-api/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/viewobject/${StringUtils.lowerCase(tableDefine.id)}/${tableDefine.id}Vo.java"
+                  templateFile="templates/viewobject/ccuapVo.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <!-- service模块-->
+        <template id="ccuapServiceImpl" name="ccuapServiceImpl类"
+                  destFile="/${config.artifactId}-service/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/service/impl/${tableDefine.id}ServiceImpl.java"
+                  templateFile="templates/service/service/impl/ccuapServiceImpl.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <template id="ccuapService" name="ccuapService类"
+                  destFile="/${config.artifactId}-service/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/service/${tableDefine.id}Service.java"
+                  templateFile="templates/service/service/ccuapService.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <template id="ccuapApiImpl" name="ccuapApiImpl类"
+                  destFile="/${config.artifactId}-service/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/web/api/${tableDefine.id}ApiImpl.java"
+                  templateFile="templates/service/web/api/ccuapApiImpl.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <!-- dao模块-->
+        <template id="ccuapDo" name="ccuapDo类"
+                  destFile="/${config.artifactId}-service/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/dao/dataobject/${tableDefine.id}Do.java"
+                  templateFile="templates/service/dao/dataobject/ccuapDo.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <template id="ccuapDao" name="ccuapDao类"
+                  destFile="/${config.artifactId}-service/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/dao/${tableDefine.id}Dao.java"
+                  templateFile="templates/service/dao/ccuapDao.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <template id="ccuapMapper" name="Mapper文件"
+                  destFile="/${config.artifactId}-service/src/main/resources/mybatis-mapper/${tableDefine.id}Dao.xml"
+                  templateFile="templates/mapper/ccuapMapper.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+    </templates>
+
+</autoMake>

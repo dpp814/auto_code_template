@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<autoMake
+        xmlns="http://molicode_repo.gitee.io/molicode_doc/schema/autoCode"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://molicode_repo.gitee.io/molicode_doc/schema/autoCode http://molicode_repo.gitee.io/molicode_doc/schema/autoCode/autoCode-1.0.xsd">
+
+    <properties>
+        <!-- 代码片段配置文件，将部分公用的代码抽取出来放置到此处 -->
+        <property key="snippet.template.path">config/molicode/snippetTemplate.xml</property>
+        <!-- 用户自定义的配置文件，配置的值以文本方式直接可以在：extendConf.get("") 到-->
+        <property key="extend.text.config">config/molicode/extendConfig.xml</property>
+        <!-- 页面依赖资源配置文件（可支持requirejs和 普通引入）-->
+        <property key="pagerequire.map.config">config/molicode/requireConfig.xml</property>
+        <!-- 数据库类型到java类型映射-->
+        <property key="dbtype.javatype.map.config">config/molicode/db2javaTypeMap.xml</property>
+        <!-- 数据库类型到页面类型映射-->
+        <property key="dbtype.columntag.map.config">config/molicode/dbType2ColumnTagMap.xml</property>
+
+    </properties>
+
+
+    <templates>
+        <!-- api模块-->
+<!--        <template id="cbsController" name="cbsController类"-->
+<!--                  destFile="/${config.artifactId}-api/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/api/${tableDefine.id}Controller.java"-->
+<!--                  templateFile="templates/controller/cbsController.gsp" engine="groovy">-->
+<!--            <acceptDataModel>tableModel</acceptDataModel>-->
+<!--        </template>-->
+<!--        <template id="cbsDto" name="cbsDto类"-->
+<!--                  destFile="/${config.artifactId}-api/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/parameter/command/${StringUtils.lowerCase(tableDefine.id)}/${tableDefine.id}DTO.java"-->
+<!--                  templateFile="templates/parameter/dto/cbsDto.gsp" engine="groovy">-->
+<!--            <acceptDataModel>tableModel</acceptDataModel>-->
+<!--        </template>-->
+<!--        &lt;!&ndash;<template id="ccuapDeleteCmd" name="ccuapDeleteCmd类"-->
+<!--                  destFile="/${config.artifactId}-api/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/parameter/command/${StringUtils.lowerCase(tableDefine.id)}/Delete${tableDefine.id}Cmd.java"-->
+<!--                  templateFile="templates/parameter/command/ccuapDeleteCmd.gsp" engine="groovy">-->
+<!--            <acceptDataModel>tableModel</acceptDataModel>-->
+<!--        </template>-->
+<!--        <template id="ccuapUpdateCmd" name="ccuapUpdateCmd类"-->
+<!--                  destFile="/${config.artifactId}-api/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/parameter/command/${StringUtils.lowerCase(tableDefine.id)}/Update${tableDefine.id}Cmd.java"-->
+<!--                  templateFile="templates/parameter/command/ccuapUpdateCmd.gsp" engine="groovy">-->
+<!--            <acceptDataModel>tableModel</acceptDataModel>-->
+<!--        </template>&ndash;&gt;-->
+<!--        <template id="cbsListQuery" name="cbsListQuery类"-->
+<!--                  destFile="/${config.artifactId}-api/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/parameter/query/${StringUtils.lowerCase(tableDefine.id)}/${tableDefine.id}ListQuery.java"-->
+<!--                  templateFile="templates/parameter/query/cbsListQuery.gsp" engine="groovy">-->
+<!--            <acceptDataModel>tableModel</acceptDataModel>-->
+<!--        </template>-->
+<!--        <template id="cbsVo" name="cbsVo类"-->
+<!--                  destFile="/${config.artifactId}-api/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/viewobject/${StringUtils.lowerCase(tableDefine.id)}/${tableDefine.id}VO.java"-->
+<!--                  templateFile="templates/viewobject/cbsVo.gsp" engine="groovy">-->
+<!--            <acceptDataModel>tableModel</acceptDataModel>-->
+<!--        </template>-->
+<!--        &lt;!&ndash; service模块&ndash;&gt;-->
+<!--        <template id="cbsServiceImpl" name="cbsServiceImpl类"-->
+<!--                  destFile="/${config.artifactId}-service/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/service/impl/${tableDefine.id}ServiceImpl.java"-->
+<!--                  templateFile="templates/service/service/impl/cbsServiceImpl.gsp" engine="groovy">-->
+<!--            <acceptDataModel>tableModel</acceptDataModel>-->
+<!--        </template>-->
+<!--        <template id="cbsService" name="cbsService类"-->
+<!--                  destFile="/${config.artifactId}-service/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/service/${tableDefine.id}Service.java"-->
+<!--                  templateFile="templates/service/service/cbsService.gsp" engine="groovy">-->
+<!--            <acceptDataModel>tableModel</acceptDataModel>-->
+<!--        </template>-->
+<!--        &lt;!&ndash;<template id="ccuapApiImpl" name="ccuapApiImpl类"-->
+<!--                  destFile="/${config.artifactId}-service/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/web/api/${tableDefine.id}ApiImpl.java"-->
+<!--                  templateFile="templates/service/web/api/ccuapApiImpl.gsp" engine="groovy">-->
+<!--            <acceptDataModel>tableModel</acceptDataModel>-->
+<!--        </template>&ndash;&gt;-->
+<!--        &lt;!&ndash; dao模块&ndash;&gt;-->
+<!--        <template id="cbsModel" name="cbsModel类"-->
+<!--                  destFile="/${config.artifactId}-service/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/dao/dataobject/${tableDefine.id}.java"-->
+<!--                  templateFile="templates/service/dao/dataobject/cbsModel.gsp" engine="groovy">-->
+<!--            <acceptDataModel>tableModel</acceptDataModel>-->
+<!--        </template>-->
+<!--        <template id="cbsMapper" name="cbsMapper类"-->
+<!--                  destFile="/${config.artifactId}-service/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/mapper/${tableDefine.id}Mapper.java"-->
+<!--                  templateFile="templates/service/dao/cbsMapper.gsp" engine="groovy">-->
+<!--            <acceptDataModel>tableModel</acceptDataModel>-->
+<!--        </template>-->
+<!--        <template id="cbsMybatis" name="cbsMybatis文件"-->
+<!--                  destFile="/${config.artifactId}-service/src/main/resources/mybatis-mapper/${tableDefine.id}Mapper.xml"-->
+<!--                  templateFile="templates/mapper/cbsMybatis.gsp" engine="groovy">-->
+<!--            <acceptDataModel>tableModel</acceptDataModel>-->
+<!--        </template>-->
+
+        <!--输出一个目录-->
+        <template id="cbsModel" name="cbsModel类"
+                  destFile="/${tableDefine.id}.java"
+                  templateFile="templates/service/dao/dataobject/cbsModel.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <!--<template id="cbsDto" name="cbsDto类"
+                  destFile="/${tableDefine.id}DTO.java"
+                  templateFile="templates/parameter/dto/cbsDto.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>-->
+        <!--<template id="ccuapDeleteCmd" name="ccuapDeleteCmd类"
+                  destFile="/${config.artifactId}-api/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/parameter/command/${StringUtils.lowerCase(tableDefine.id)}/Delete${tableDefine.id}Cmd.java"
+                  templateFile="templates/parameter/command/ccuapDeleteCmd.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>-->
+        <template id="cbsCreateDto" name="cbsCreateDto类"
+                  destFile="/${tableDefine.id}CreateDTO.java"
+                  templateFile="templates/parameter/dto/cbsCreateDto.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <template id="cbsUpdateDto" name="cbsUpdateDto类"
+                  destFile="/${tableDefine.id}UpdateDTO.java"
+                  templateFile="templates/parameter/dto/cbsUpdateDto.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <template id="cbsListQuery" name="cbsListQuery类"
+                  destFile="/${tableDefine.id}ListQuery.java"
+                  templateFile="templates/parameter/query/cbsListQuery.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <template id="cbsVo" name="cbsVo类"
+                  destFile="/${tableDefine.id}VO.java"
+                  templateFile="templates/viewobject/cbsVo.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <template id="cbsController" name="cbsController类"
+                  destFile="/${tableDefine.id}Controller.java"
+                  templateFile="templates/controller/cbsController.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <!-- service模块-->
+        <template id="cbsService" name="cbsService类"
+                  destFile="/${tableDefine.id}Service.java"
+                  templateFile="templates/service/service/cbsService.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <template id="cbsServiceImpl" name="cbsServiceImpl类"
+                  destFile="/${tableDefine.id}ServiceImpl.java"
+                  templateFile="templates/service/service/impl/cbsServiceImpl.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <!--<template id="ccuapApiImpl" name="ccuapApiImpl类"
+                  destFile="/${config.artifactId}-service/src/main/java/${PubUtils.packageToPath(config.basePackage)}/${PubUtils.packageToPath(config.artifactId)}/${PubUtils.packageToPath(config.category)}/web/api/${tableDefine.id}ApiImpl.java"
+                  templateFile="templates/service/web/api/ccuapApiImpl.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>-->
+        <template id="cbsMapper" name="cbsMapper类"
+                  destFile="/${tableDefine.id}Mapper.java"
+                  templateFile="templates/service/dao/cbsMapper.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+        <template id="cbsMybatis" name="cbsMybatis文件"
+                  destFile="/${tableDefine.id}Mapper.xml"
+                  templateFile="templates/mapper/cbsMybatis.gsp" engine="groovy">
+            <acceptDataModel>tableModel</acceptDataModel>
+        </template>
+
+    </templates>
+
+</autoMake>
