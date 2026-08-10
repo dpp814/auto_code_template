@@ -14,7 +14,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serializable;
 import org.hibernate.validator.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotEmpty;
 <% if(dateTimeFlag) { %>import java.util.Date;<% } %>
 <% if(decimalFlag) { %>import java.math.BigDecimal;<% } %>
 
