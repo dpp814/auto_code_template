@@ -3,6 +3,7 @@
     def varDomainName=tableNameUtil.lowerCaseFirst(tableDefine.id);
     def pkColumn=tableDefine.getPkColumn();
     def pkJavaType=tableNameUtil.getDataType(pkColumn?.columnType, pkColumn?.length, pkColumn?.decimalDigits);
+    def pkIsString = pkJavaType == "String";
     def pkColumnBeanName=tableNameUtil.upperFirst(pkColumn?.dataName)
 
     def columnNameList = tableDefine.columns.collect{it -> it.columnName};
@@ -12,7 +13,8 @@
     def enabledFlag = columnNameList.contains("enabled");
 %>
 
-import com.bihu.cbs.common.meta.translate.annotation.Translate;
+<% if(pkIsString) { %>import com.bihu.cbs.common.util.CommonUtil;
+<% } %>import com.bihu.cbs.common.meta.translate.annotation.Translate;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
@@ -39,7 +41,10 @@ public class ${tableDefine.id}ServiceImpl implements ${tableDefine.id}Service {
     @Override
     public AppResponse<${tableDefine.id}> insert(${tableDefine.id}CreateDTO dto) {
         ${tableDefine.id} ${varDomainName} = new  ${tableDefine.id}();
-        BeanUtils.copyProperties(dto, ${varDomainName});
+        BeanUtils.copyProperties(dto, ${varDomainName});<% if(pkIsString) { %>
+        if (${varDomainName}.get${pkColumnBeanName}() == null) {
+            ${varDomainName}.set${pkColumnBeanName}(CommonUtil.getIdStr());
+        }<% } %>
         int effect = ${varDomainName}Mapper.insert(${varDomainName});
         return AppResponse.get(effect == 1, ${varDomainName});
     }
@@ -73,7 +78,7 @@ public class ${tableDefine.id}ServiceImpl implements ${tableDefine.id}Service {
     @Translate
     @Override
     public ${tableDefine.id}VO get(${pkJavaType} ${pkColumn.dataName}) {
-        return ${varDomainName}Mapper.get( ${pkColumn.dataName});
+        return ${varDomainName}Mapper.get(${pkColumn.dataName});
     }
 
     @Translate
