@@ -42,9 +42,7 @@ public class ${tableDefine.id}ServiceImpl implements ${tableDefine.id}Service {
     public AppResponse<${tableDefine.id}> insert(${tableDefine.id}CreateDTO dto) {
         ${tableDefine.id} ${varDomainName} = new  ${tableDefine.id}();
         BeanUtils.copyProperties(dto, ${varDomainName});<% if(pkIsString) { %>
-        if (${varDomainName}.get${pkColumnBeanName}() == null) {
-            ${varDomainName}.set${pkColumnBeanName}(CommonUtil.getIdStr());
-        }<% } %>
+        ${varDomainName}.set${pkColumnBeanName}(CommonUtil.getIdStr());<% } %>
         int effect = ${varDomainName}Mapper.insert(${varDomainName});
         return AppResponse.get(effect == 1, ${varDomainName});
     }
