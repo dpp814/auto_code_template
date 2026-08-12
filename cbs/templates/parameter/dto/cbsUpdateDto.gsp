@@ -39,7 +39,7 @@ public class ${tableDefine.id}UpdateDTO implements Serializable {
                 println """    @NotNull(message = "${it.cnname}不能为空")"""
             }
         }
-        if("createdBy,createdAt,updatedBy,updatedAt,".contains(it.dataName)){
+        if("createdBy,createdAt,updatedBy,updatedAt,removed,".contains(it.dataName)){
             println """    @Schema(description = "${it.comment}", type = "${colDataType}", hidden = true)"""
         }else{
             println """    @Schema(description = "${it.comment}", type = "${colDataType}")"""
