@@ -40,7 +40,7 @@ public class ${tableDefine.id}ServiceImpl implements ${tableDefine.id}Service {
 
     @Override
     public AppResponse<${tableDefine.id}> insert(${tableDefine.id}CreateDTO dto) {
-        ${tableDefine.id} ${varDomainName} = new  ${tableDefine.id}();
+        ${tableDefine.id} ${varDomainName} = new ${tableDefine.id}();
         BeanUtils.copyProperties(dto, ${varDomainName});<% if(pkIsString) { %>
         ${varDomainName}.set${pkColumnBeanName}(CommonUtil.getIdStr());<% } %>
         int effect = ${varDomainName}Mapper.insert(${varDomainName});
@@ -67,7 +67,7 @@ public class ${tableDefine.id}ServiceImpl implements ${tableDefine.id}Service {
     <% } %>
     @Override
     public AppResponse<${tableDefine.id}> update(${tableDefine.id}UpdateDTO dto) {
-        ${tableDefine.id} ${varDomainName} = new  ${tableDefine.id}();
+        ${tableDefine.id} ${varDomainName} = new ${tableDefine.id}();
         BeanUtils.copyProperties(dto, ${varDomainName});
         int effect = ${varDomainName}Mapper.update(${varDomainName});
         return AppResponse.get(effect > 0, ${varDomainName});
